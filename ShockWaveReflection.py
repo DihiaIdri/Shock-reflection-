@@ -19,7 +19,7 @@ class ShockWaveReflection:
     def find_new_states(self):
         M0 = np.array(self.Minit) # guess
         M = fsolve(ShockWaveReflection.shock_mach_number, M0, args=(self.c, self.g, self.V), xtol=1e-6)[0]
-        M = round(M,2)
+        M = round(M, 2)
         P21 = ShockWaveReflection.pressure_downstream(self, M)
         P2 = round(self.P*P21)
         T21 = ShockWaveReflection.temperature_downstream(self, M, P21)
